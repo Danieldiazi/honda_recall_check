@@ -8,5 +8,6 @@
   "issue_tracker": "https://github.com/danieldiazi/honda_recall_check/issues",
   "requirements": ["requests"],
   "codeowners": ["@danieldiazi"],
-  "iot_class": "cloud_polling"
+  "iot_class": "cloud_polling",
+   "country": "ES"
 }
