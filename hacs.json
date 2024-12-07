@@ -1,0 +1,12 @@
+{
+  "name": "Honda Recall Check",
+  "description": "Integración personalizada para comprobar llamadas a revisión de vehículos Honda.",
+  "domain": "honda_recall_check",
+  "documentation": "https://github.com/danieldiazi/honda_recall_check",
+  "repository": "https://github.com/danieldiazi/honda_recall_check",
+  "version": "1.0.0",
+  "issue_tracker": "https://github.com/danieldiazi/honda_recall_check/issues",
+  "requirements": ["requests"],
+  "codeowners": ["@danieldiazi"],
+  "iot_class": "cloud_polling"
+}
