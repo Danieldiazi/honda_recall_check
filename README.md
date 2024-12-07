@@ -19,5 +19,3 @@ Integración personalizada de Home Assistant para comprobar si un vehículo Hond
 - Añade el código VIN de tu vehículo durante la configuración desde la UI.
 - Puedes configurar el intervalo de comprobación desde las opciones de la integración.
 
-## Código Fuente
-[Repositorio en GitHub](https://github.com/tuusuario/honda_recall_check)
