@@ -3,14 +3,15 @@
   "name": "Honda Recall Check",
   "codeowners": ["@danieldiazi"],
   "config_flow": true,
+  "dependencies": [],
   "documentation": "https://github.com/Danieldiazi/honda_recall_check",
-  "iot_class": "cloud_polling"
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Danieldiazi/homeassistant-meteogalicia/issues",
   "requirements": ["requests"],
   "version": "1.0.0",
- 
+   "zeroconf": []
   
   
   
   
 }
-
