@@ -1,6 +1,6 @@
 ![GitHub Activity](https://img.shields.io/github/commit-activity/m/danieldiazi/honda_recall_check?label=commits)
 ![GitHub Release](https://img.shields.io/github/v/release/danieldiazi/honda_recall_check)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Danieldiazi_honda_recall_checka&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Danieldiazi_honda_recall_check)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Danieldiazi_honda_recall_check&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Danieldiazi_honda_recall_check)
 
 # Honda Recall Check
 
