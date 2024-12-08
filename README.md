@@ -34,7 +34,7 @@ Aquí te pongo algún ejemplo de sus posibles usos, aunque seguro que tienes má
 ## Configuración
 
 - Añade el código VIN de tu vehículo durante la configuración desde la UI.
-- Puedes configurar el intervalo de comprobación desde las opciones de la integración.
+- Puedes configurar el intervalo de comprobación desde las opciones de la integración. Por defecto está a 1440 minutos (24 horas), que es más que suficiente, tampoco hay que estar consultando la web de honda cada minuto.
 
 ## A tener en cuenta / Disclaimer
 Esta integración navega por la web de Honda para extraer la información, en el momento en que hagan un cambio de su web, esta integración puede fallar y habrá que esperar poder adaptarla (si es posible).
