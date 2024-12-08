@@ -1,3 +1,7 @@
+![GitHub Activity](https://img.shields.io/github/commit-activity/m/danieldiazi/honda_recall_check?label=commits)
+![GitHub Release](https://img.shields.io/github/v/release/danieldiazi/honda_recall_check)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Danieldiazi_honda_recall_checka&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Danieldiazi_honda_recall_check)
+
 # Honda Recall Check
 
 Integración personalizada de Home Assistant para comprobar si un vehículo Honda tiene llamadas a revisión o actualizaciones pendientes.
