@@ -5,7 +5,7 @@ from .const import DOMAIN
 
 CONFIG_SCHEMA = vol.Schema({
     vol.Required("vin"): str,
-    vol.Optional("scan_interval", default=60): int,  # Intervalo predeterminado: 60 minutos
+    vol.Optional("scan_interval", default=1440): int,  # Intervalo predeterminado: 1440 minutos = 24 horas
 })
 
 class HondaRecallConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
