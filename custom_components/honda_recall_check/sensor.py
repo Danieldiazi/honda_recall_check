@@ -1,5 +1,5 @@
 from homeassistant.components.sensor import SensorEntity
-from .honda_api import HondaRecallAPI
+from .honda_api import HondaRecallAPI, HondaRecallAPIError  # Asumiendo que HondaRecallAPIError está definida allí
 from .const import DOMAIN
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
@@ -41,8 +41,11 @@ class HondaRecallSensor(SensorEntity):
     async def async_update(self):
         try:
             self._recalls = await self.hass.async_add_executor_job(self._api.check_recall)
-        except Exception as e:
+        except HondaRecallAPIError as e:
+            # Aquí podemos hacer un log del error si queremos.
+            # logger.error(f"Error al obtener recalls: {e}")
             self._recalls = []
+
 
 class HondaRecallBooleanSensor(SensorEntity):
     """Sensor que devuelve True/False si hay recalls."""
@@ -69,5 +72,7 @@ class HondaRecallBooleanSensor(SensorEntity):
         try:
             recalls = await self.hass.async_add_executor_job(self._api.check_recall)
             self._state = len(recalls) > 0
-        except Exception as e:
+        except HondaRecallAPIError as e:
+            logger.error(f"Error al obtener el estado de recalls: {e}")
             self._state = False
+        
