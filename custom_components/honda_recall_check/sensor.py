@@ -42,8 +42,7 @@ class HondaRecallSensor(SensorEntity):
         try:
             self._recalls = await self.hass.async_add_executor_job(self._api.check_recall)
         except HondaRecallAPIError as e:
-            # Aquí podemos hacer un log del error si queremos.
-            # logger.error(f"Error al obtener recalls: {e}")
+            logger.error(f"Error al obtener recalls: {e}")
             self._recalls = []
 
 
