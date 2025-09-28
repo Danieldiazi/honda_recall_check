@@ -6,9 +6,9 @@
   "dependencies": [],
   "documentation": "https://github.com/Danieldiazi/honda_recall_check",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/Danieldiazi/homeassistant-meteogalicia/issues",
+  "issue_tracker": "https://github.com/Danieldiazi/honda_recall_check/issues",
   "requirements": ["requests"],
-  "version": "1.0.0",
+  "version": "1.0.1",
    "zeroconf": []
   
   
