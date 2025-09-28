@@ -8,6 +8,7 @@ class HondaRecallAPIError(Exception):
 class HondaRecallAPI:
     """Clase que interactúa con la API de Honda para verificar llamadas a revisión."""
     BASE_URL = "https://www.honda.es/cars/owners/recalls-and-updates/_jcr_content/service.submit.html"
+    
 
     def __init__(self, vin):
         self.vin = vin
@@ -16,12 +17,18 @@ class HondaRecallAPI:
         """Envía el VIN al endpoint y procesa la respuesta JSON."""
         try:
             headers = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Host": "www.honda.es",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
+                "Accept": "application/json, text/javascript, */*; q=0.01",
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "Referer": "https://www.honda.es/cars/owners/recalls-and-updates.html",
+                "X-Requested-With": "XMLHttpRequest",
+                "Origin": "https://www.honda.es",
             }
+
             payload = {"vin": self.vin}
 
-            response = requests.post(self.BASE_URL, headers=headers, data=payload)
+            response = requests.post(self.BASE_URL, headers=headers, data=payload, timeout=20)
             response.raise_for_status()  # Lanza requests.exceptions.HTTPError si no es 200 OK
 
             json_response = response.json()
@@ -34,8 +41,14 @@ class HondaRecallAPI:
                 ]
             return []
         except requests.exceptions.RequestException as e:
-            # Error relacionado con la solicitud HTTP
-            raise HondaRecallAPIError(f"Error de red o HTTP al consultar Honda API: {e}")
+            response = getattr(e, "response", None)
+            if response is not None:
+               status = response.status_code
+               text_preview = response.text[:200]  # primeras 200 letras para no saturar logs
+               raise HondaRecallAPIError(
+               f"Error de red o HTTP (status {status}) al consultar Honda API: {e}\nRespuesta: {text_preview}")
+            else:
+               raise HondaRecallAPIError(f"Error de red o HTTP al consultar Honda API: {e}"    )
         except json.JSONDecodeError as e:
             # Error al parsear el JSON
             raise HondaRecallAPIError(f"Error al parsear la respuesta JSON: {e}")
